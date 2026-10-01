@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us | Morare Trading and Logistics</title>
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -12,6 +12,14 @@
 </head>
 <body>
 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="images/logo.svg" alt="Loading" style="width: 80px; height: 80px; animation: preloaderSpin 3s linear infinite;">
+            <p>Loading...</p>
+        </div>
+    </div>
+
     <header id="header">
         <nav class="navbar">
             <div class="container nav-container">
@@ -19,9 +27,13 @@
                     <img src="images/logo.svg" alt="Logo" class="logo-svg">
                     <div class="logo-text">
                         <span class="logo-name">MORARE TRADING AND LOGISTICS</span>
-                        <span class="logo-tagline">DRIVEN BY PURPOSE, DEDICATION AND CONNECTING THE WORLD</span>
                     </div>
                 </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link active">About</a></li>
@@ -45,14 +57,12 @@
         <div class="container">
             <div class="about-main-grid">
                 <div class="about-image-side" data-aos="fade-right">
-                    <!-- USING THE COAL IMAGE HERE -->
                     <div class="styled-image-wrapper">
                         <img src="images/coal.jpg" alt="Coal and Mining Tools" class="content-image" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="about-text-side" data-aos="fade-left">
                     <h2>About the Company</h2>
-                    <div class="about-divider"></div>
                     <p class="about-lead">Morare Trading and Logistics (Pty) Ltd is a South African–based trading, logistics, and commodities services company focused on the mining, energy, and industrial sectors.</p>
                     <p>The company provides end-to-end solutions across sourcing, transportation, marketing, and supply of bulk commodities, with a strong emphasis on chrome ore, coal, and related mining products.</p>
                     <p>Morare Trading and Logistics is positioned as a flexible, compliant, and growth-oriented partner for mines, processors, smelters, and industrial buyers, supporting both domestic and cross-border trade within Southern Africa.</p>
@@ -85,10 +95,8 @@
     </section>
 
     <footer id="footer" class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Morare Trading and Logistics (Pty) Ltd. All Rights Reserved.</p>
-            </div>
+        <div class="container text-center">
+            <p>&copy; <span id="currentYear"></span> Morare Trading and Logistics (Pty) Ltd. All Rights Reserved.</p>
         </div>
     </footer>
 
