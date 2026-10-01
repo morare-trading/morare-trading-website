@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Our Services | Morare Trading and Logistics</title>
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="images/logo.svg" alt="Loading" style="width: 80px; height: 80px; animation: preloaderSpin 3s linear infinite;">
+            <p>Loading...</p>
+        </div>
+    </div>
 
     <header id="header">
         <nav class="navbar">
@@ -21,6 +29,11 @@
                         <span class="logo-name">MORARE TRADING AND LOGISTICS</span>
                     </div>
                 </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -93,7 +106,7 @@
                 </div>
             </div>
 
-            <!-- Service 4: Trading (No specific photo, uses icon styling) -->
+            <!-- Service 4: Trading (Icon only) -->
             <div class="service-detail reverse" data-aos="fade-up">
                 <div class="service-icon-box">
                     <i class="fas fa-gem"></i>
