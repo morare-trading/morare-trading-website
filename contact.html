@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Contact Us | Morare Trading and Logistics</title>
+    <title>Request Quote | Morare Trading and Logistics</title>
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -13,42 +13,40 @@
 <body>
 
     <!-- Preloader -->
-    <div id="preloader">
-        <div class="preloader-inner">
-            <img src="images/logo.svg" alt="Loading" style="width: 80px; height: 80px; animation: preloaderSpin 3s linear infinite;">
-            <p>Loading...</p>
-        </div>
-    </div>
+    <div id="preloader"><div class="preloader-inner"><img src="images/logo.svg" alt="Loading" style="width: 80px; animation: preloaderSpin 3s linear infinite;"><p>Loading...</p></div></div>
 
-    <!-- Navigation -->
     <header id="header">
         <nav class="navbar">
             <div class="container nav-container">
                 <a href="index.html" class="nav-logo">
                     <img src="images/logo.svg" alt="Logo" class="logo-svg">
-                    <div class="logo-text">
-                        <span class="logo-name">MORARE TRADING AND LOGISTICS</span>
-                    </div>
+                    <div class="logo-text"><span class="logo-name">MORARE TRADING AND LOGISTICS</span></div>
                 </a>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    
+                    <!-- Language Switcher EN/PT -->
+                    <li class="lang-switcher">
+                        <button id="lang-en" class="lang-btn active">EN</button>
+                        <span class="lang-divider">|</span>
+                        <button id="lang-pt" class="lang-btn">PT</button>
+                    </li>
                 </ul>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
             </div>
         </nav>
     </header>
 
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display:none;"></div>
+
     <section class="page-hero">
         <div class="container">
             <div class="page-hero-content" data-aos="fade-up">
-                <h1>Contact Us</h1>
+                <h1>Request a Quote</h1>
             </div>
         </div>
     </section>
@@ -58,74 +56,86 @@
             <div class="contact-grid">
                 
                 <div class="contact-info" data-aos="fade-right">
-                    <h2>Get In Touch</h2>
-                    <p class="contact-intro">We'd love to hear from you. Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.</p>
-
+                    <h2>Trade Enquiries</h2>
+                    <p class="contact-intro">Let's discuss how we can support your commodity requirements. Fill out our quick quote form or contact us directly.</p>
                     <div class="contact-info-items">
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="contact-info-text">
-                                <h4>Location</h4>
-                                <p>South Africa</p>
-                            </div>
+                            <div class="contact-info-text"><h4>Location</h4><p>South Africa</p></div>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-info-text">
-                                <h4>Email</h4>
-                                <p><a href="mailto:info@moraretradingandlogistics.co.za">info@moraretradingandlogistics.co.za</a></p>
-                            </div>
+                            <div class="contact-info-text"><h4>Email</h4><p><a href="mailto:info@moraretradingandlogistics.co.za">info@moraretradingandlogistics.co.za</a></p></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form-wrapper" data-aos="fade-left">
-                    <h2>Send Us a Message</h2>
+                    <h2>Interactive Quote Form</h2>
                     
                     <form id="contactForm" class="contact-form" action="https://formspree.io/f/mkjgedbg" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        <div class="form-group full-width">
+                            <label>Primary Commodity Required *</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="Commodity_Type" value="Chrome Ore" checked> Chrome Ore</label>
+                                <label><input type="radio" name="Commodity_Type" value="Coal"> Coal</label>
+                                <label><input type="radio" name="Commodity_Type" value="Other"> Other</label>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+
+                        <div class="form-group full-width">
+                            <div class="slider-container">
+                                <div class="slider-header">
+                                    <label for="tonnageSlider" style="margin:0;">Estimated Tonnage Required</label>
+                                    <span class="tonnage-display" id="tonnageDisplay">10,000 Tons</span>
+                                </div>
+                                <input type="range" id="tonnageSlider" name="Estimated_Tonnage" min="1000" max="50000" step="1000" value="10000" class="range-slider">
+                                <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--text-light); margin-top:5px;">
+                                    <span>1,000t</span>
+                                    <span>50,000t+</span>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                            <label for="name">Contact Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
                         </div>
                         <div class="form-group">
                             <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" placeholder="Your company name">
+                            <input type="text" id="company" name="company" placeholder="e.g. Acme Smelters">
                         </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+27 12 345 6789">
+                        </div>
+                        
                         <div class="form-group full-width">
-                            <label for="service">Service of Interest</label>
+                            <label for="service">Service Required</label>
                             <select id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="crushing-screening">Crushing & Screening</option>
-                                <option value="chrome-wash">Chrome Wash Plants</option>
-                                <option value="loading-hauling">Loading & Hauling</option>
-                                <option value="stockpile">Stockpile Management</option>
-                                <option value="warehousing">Warehousing</option>
-                                <option value="mineral-trading">Mineral Trading</option>
+                                <option value="Supply & Delivery">Commodity Supply & Delivery</option>
+                                <option value="Hauling Only">Loading & Hauling Only</option>
+                                <option value="Crushing">Crushing & Screening</option>
+                                <option value="Warehousing">Warehousing & Storage</option>
                             </select>
                         </div>
                         <div class="form-group full-width">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea>
+                            <label for="message">Additional Requirements *</label>
+                            <textarea id="message" name="message" required placeholder="Please provide specific grades, delivery locations, or timelines..."></textarea>
                         </div>
                         <div class="form-group full-width">
-                            <button type="submit" class="btn btn-primary btn-full">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
+                            <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-paper-plane"></i> Request Quote</button>
                         </div>
                     </form>
 
                     <div id="formSuccess" class="form-success" style="display:none; text-align:center; padding: 30px; background:var(--white); border-radius:var(--border-radius-lg); box-shadow:var(--shadow);">
                         <i class="fas fa-check-circle" style="font-size: 4rem; color: #10b981; margin-bottom: 15px;"></i>
-                        <h3 style="color: #10b981; margin-bottom: 10px;">Message Sent Successfully!</h3>
-                        <p style="color: var(--text);">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                        <h3 style="color: #10b981; margin-bottom: 10px;">Quote Request Sent!</h3>
+                        <p style="color: var(--text);">Thank you for your inquiry. A Morare representative will contact you shortly.</p>
                     </div>
 
                 </div>
@@ -135,11 +145,18 @@
 
     <footer id="footer" class="footer">
         <div class="container text-center">
-            <p>&copy; <span id="currentYear"></span> Morare Trading and Logistics (Pty) Ltd. All Rights Reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Morare Trading and Logistics (Pty) Ltd.</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <!-- CHANGE THE PHONE NUMBER IN THE HREF BELOW (Include country code, no + or spaces) -->
+    <a href="https://wa.me/27821234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
