@@ -58,34 +58,34 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tonnageSlider && tonnageDisplay) {
         tonnageSlider.addEventListener('input', function() {
             let value = Number(this.value).toLocaleString();
-            if (this.value == 50000) { value = "50,000+"; } // Add + for max value
+            if (this.value == 50000) { value = "50,000+"; }
             tonnageDisplay.textContent = value + " Tons";
         });
     }
 
-    // ---- Language Switcher Logic ----
+    // ---- Language Switcher Logic (English / Afrikaans) ----
     const btnEn = document.getElementById('lang-en');
-    const btnPt = document.getElementById('lang-pt');
+    const btnAf = document.getElementById('lang-af');
 
     function checkActiveLanguage() {
         const hash = window.location.hash;
-        if (hash === '#googtrans(en|pt)') {
+        if (hash === '#googtrans(en|af)') {
             if(btnEn) btnEn.classList.remove('active');
-            if(btnPt) btnPt.classList.add('active');
+            if(btnAf) btnAf.classList.add('active');
         } else {
             if(btnEn) btnEn.classList.add('active');
-            if(btnPt) btnPt.classList.remove('active');
+            if(btnAf) btnAf.classList.remove('active');
         }
     }
 
-    if (btnEn && btnPt) {
+    if (btnEn && btnAf) {
         checkActiveLanguage();
         btnEn.addEventListener('click', function() {
             window.location.hash = '#googtrans(en|en)';
             location.reload();
         });
-        btnPt.addEventListener('click', function() {
-            window.location.hash = '#googtrans(en|pt)';
+        btnAf.addEventListener('click', function() {
+            window.location.hash = '#googtrans(en|af)';
             location.reload();
         });
     }
@@ -124,11 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Google Translate Initialization
+// Google Translate Initialization (English + Afrikaans)
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,pt',
+        includedLanguages: 'en,af',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
     }, 'google_translate_element');
