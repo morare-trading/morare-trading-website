@@ -13,29 +13,38 @@
 <body>
 
     <!-- Preloader -->
-    <div id="preloader"><div class="preloader-inner"><img src="images/logo.svg" alt="Loading" style="width: 80px; animation: preloaderSpin 3s linear infinite;"><p>Loading...</p></div></div>
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="images/logo.svg" alt="Loading" style="width: 80px; height: 80px; animation: preloaderSpin 3s linear infinite;">
+            <p>Loading...</p>
+        </div>
+    </div>
 
     <header id="header">
         <nav class="navbar">
             <div class="container nav-container">
                 <a href="index.html" class="nav-logo">
                     <img src="images/logo.svg" alt="Logo" class="logo-svg">
-                    <div class="logo-text"><span class="logo-name">MORARE TRADING AND LOGISTICS</span></div>
+                    <div class="logo-text">
+                        <span class="logo-name">MORARE TRADING AND LOGISTICS</span>
+                    </div>
                 </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="contact.html" class="nav-link active">Contact</a></li>
-                    
-                    <!-- Language Switcher EN/PT -->
                     <li class="lang-switcher">
                         <button id="lang-en" class="lang-btn active">EN</button>
                         <span class="lang-divider">|</span>
                         <button id="lang-pt" class="lang-btn">PT</button>
                     </li>
                 </ul>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
             </div>
         </nav>
     </header>
@@ -61,11 +70,31 @@
                     <div class="contact-info-items">
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="contact-info-text"><h4>Location</h4><p>South Africa</p></div>
+                            <div class="contact-info-text">
+                                <h4>Location</h4>
+                                <p>South Africa</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-info-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+27826196949">082 619 6949</a></p>
+                            </div>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-info-text"><h4>Email</h4><p><a href="mailto:info@moraretradingandlogistics.co.za">info@moraretradingandlogistics.co.za</a></p></div>
+                            <div class="contact-info-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:moraretradingandlogistics@gmail.com">moraretradingandlogistics@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-info-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday – Friday: 08:00 – 17:00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +140,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+27 12 345 6789">
+                            <input type="tel" id="phone" name="phone" placeholder="082 619 6949">
                         </div>
                         
                         <div class="form-group full-width">
@@ -143,15 +172,43 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer id="footer" class="footer">
-        <div class="container text-center">
-            <p>&copy; <span id="currentYear"></span> Morare Trading and Logistics (Pty) Ltd.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Morare Logo" class="footer-logo-svg" style="filter: brightness(0) invert(1); width:40px;">
+                        <span>MORARE TRADING AND LOGISTICS</span>
+                    </div>
+                    <p style="font-size:0.8rem; opacity:0.8;">Driven by Purpose, Dedication and Connecting the World</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> South Africa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+27826196949" style="color:rgba(255,255,255,0.7);">082 619 6949</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:moraretradingandlogistics@gmail.com" style="color:rgba(255,255,255,0.7);">moraretradingandlogistics@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                <p>&copy; <span id="currentYear"></span> Morare Trading and Logistics (Pty) Ltd. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <!-- CHANGE THE PHONE NUMBER IN THE HREF BELOW (Include country code, no + or spaces) -->
-    <a href="https://wa.me/27821234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+    <a href="https://wa.me/27826196949" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
