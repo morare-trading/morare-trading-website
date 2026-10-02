@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ---- Current Year ----
     document.querySelectorAll('#currentYear').forEach(el => el.textContent = new Date().getFullYear());
 
-    // ---- Interactive Quote Slider (Lead Gen) ----
+    // ---- Interactive Quote Slider ----
     const tonnageSlider = document.getElementById('tonnageSlider');
     const tonnageDisplay = document.getElementById('tonnageDisplay');
     
@@ -60,33 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let value = Number(this.value).toLocaleString();
             if (this.value == 50000) { value = "50,000+"; }
             tonnageDisplay.textContent = value + " Tons";
-        });
-    }
-
-    // ---- Language Switcher Logic (English / Afrikaans) ----
-    const btnEn = document.getElementById('lang-en');
-    const btnAf = document.getElementById('lang-af');
-
-    function checkActiveLanguage() {
-        const hash = window.location.hash;
-        if (hash === '#googtrans(en|af)') {
-            if(btnEn) btnEn.classList.remove('active');
-            if(btnAf) btnAf.classList.add('active');
-        } else {
-            if(btnEn) btnEn.classList.add('active');
-            if(btnAf) btnAf.classList.remove('active');
-        }
-    }
-
-    if (btnEn && btnAf) {
-        checkActiveLanguage();
-        btnEn.addEventListener('click', function() {
-            window.location.hash = '#googtrans(en|en)';
-            location.reload();
-        });
-        btnAf.addEventListener('click', function() {
-            window.location.hash = '#googtrans(en|af)';
-            location.reload();
         });
     }
 
@@ -123,13 +96,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// Google Translate Initialization (English + Afrikaans)
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,af',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-    }, 'google_translate_element');
-}
